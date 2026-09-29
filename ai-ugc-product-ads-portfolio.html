@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0b0c0e" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f3f4ef" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="data:," />
+  <title>Obule Paige — AI UGC &amp; Product Ads</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f3f4ef;
+      --surface: #ffffff;
+      --surface-2: #e8eae4;
+      --about-bg: #e1e5dc;
+      --ink: #111411;
+      --muted: #59605a;
+      --line: #c7ccc5;
+      --accent: #a8c900;
+      --accent-ink: #101300;
+      --frame: #050606;
+      --shadow: 0 24px 70px rgba(25, 31, 24, .18);
+      --max: 1240px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #070809;
+        --surface: #0e1011;
+        --surface-2: #141718;
+        --about-bg: #0f1311;
+        --ink: #f7f8f4;
+        --muted: #b1b6b1;
+        --line: #2d3234;
+        --accent: #d8ff32;
+        --accent-ink: #101300;
+        --frame: #030404;
+        --shadow: 0 24px 70px rgba(0, 0, 0, .52);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "IBM Plex Sans", sans-serif;
+      overflow-x: hidden;
+    }
+    .shell { width: min(100% - 40px, var(--max)); margin-inline: auto; }
+    .hero {
+      min-height: min(850px, 96svh);
+      display: grid;
+      align-content: end;
+      padding: clamp(96px, 14vw, 190px) 0 clamp(54px, 8vw, 92px);
+      position: relative;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 8% -10vw auto auto;
+      width: min(42vw, 520px);
+      aspect-ratio: 1;
+      background:
+        linear-gradient(90deg, transparent 49.4%, color-mix(in srgb, var(--line) 58%, transparent) 49.4% 50.6%, transparent 50.6%),
+        linear-gradient(transparent 49.4%, color-mix(in srgb, var(--line) 58%, transparent) 49.4% 50.6%, transparent 50.6%);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      opacity: .55;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: clamp(28px, 4vw, 52px);
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .hero-meta span:last-child { display: inline-flex; align-items: center; gap: 10px; }
+    .hero-meta span:last-child::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 1050px;
+      margin-bottom: 26px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(4.45rem, 11vw, 9.8rem);
+      font-weight: 800;
+      line-height: .79;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+    .hero-copy {
+      max-width: 690px;
+      margin: 0 0 0 auto;
+      color: var(--muted);
+      font-size: clamp(1.12rem, 2.1vw, 1.65rem);
+      line-height: 1.43;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      width: min(100%, 690px);
+      margin: 30px 0 0 auto;
+    }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 19px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .button--quiet {
+      border-color: var(--line);
+      background: transparent;
+      color: var(--ink);
+    }
+    .button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+    .accent-mark {
+      display: inline-block;
+      width: clamp(44px, 6vw, 78px);
+      height: .22em;
+      margin: 0 .08em .08em 0;
+      background: var(--accent);
+      vertical-align: middle;
+    }
+    section { padding: clamp(72px, 10vw, 132px) 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: clamp(28px, 5vw, 58px);
+    }
+    .section-no {
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin-bottom: 0;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(2.7rem, 6vw, 5.4rem);
+      line-height: .9;
+      letter-spacing: -.025em;
+      text-transform: uppercase;
+    }
+    .video-frame {
+      position: relative;
+      overflow: hidden;
+      background: var(--frame);
+      box-shadow: var(--shadow);
+    }
+    .video-frame--portrait { aspect-ratio: 9 / 16; }
+    .video-frame--portrait-720x904 { aspect-ratio: 720 / 904; }
+    .video-frame--landscape-4x3 { aspect-ratio: 4 / 3; }
+    .showreel-frame { width: min(100%, 480px); }
+    .video-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.11);
+    }
+    .video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 15px 0 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .caption strong { color: var(--ink); font-weight: 600; }
+    .work-zone { background: var(--surface-2); border-block: 1px solid var(--line); }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(42px, 6vw, 76px) clamp(24px, 3.4vw, 46px);
+    }
+    .project:nth-child(2) { margin-top: clamp(56px, 8vw, 108px); }
+    .project-index {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .project-index::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+    h3 {
+      margin: 20px 0 10px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      line-height: 1;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+    }
+    .project p { max-width: 53ch; margin-bottom: 0; color: var(--muted); line-height: 1.65; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: minmax(220px, .7fr) 1.3fr;
+      gap: clamp(36px, 7vw, 96px);
+      align-items: start;
+    }
+    .services-title { position: sticky; top: 30px; }
+    .service-list { border-top: 1px solid var(--line); }
+    .service-item {
+      display: grid;
+      grid-template-columns: 2.4rem 1fr;
+      align-items: baseline;
+      gap: 16px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .service-number {
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+    }
+    .service-item strong {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(1.45rem, 2.65vw, 2.25rem);
+      font-weight: 600;
+      line-height: 1.08;
+      text-transform: uppercase;
+    }
+    .about { background: var(--about-bg); color: var(--ink); border-block: 1px solid var(--line); }
+    .about .section-no { color: var(--accent); }
+    .about-statement {
+      max-width: 1080px;
+      margin: 0;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(2.45rem, 6vw, 5.7rem);
+      font-weight: 600;
+      line-height: .99;
+      letter-spacing: -.025em;
+      text-transform: uppercase;
+    }
+    .contact { padding-bottom: 46px; }
+    .contact-panel {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 40px;
+      padding: clamp(34px, 5vw, 68px) 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      align-items: end;
+    }
+    .contact-content { display: grid; justify-items: start; gap: 24px; }
+    .contact-copy {
+      max-width: 14ch;
+      margin-bottom: 0;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(2.5rem, 6.7vw, 6.3rem);
+      font-weight: 700;
+      line-height: .9;
+      letter-spacing: -.035em;
+      text-transform: uppercase;
+    }
+    .contact-email {
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      overflow-wrap: anywhere;
+    }
+    .contact-email a { color: var(--ink); text-underline-offset: 4px; }
+    .footer-note {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-top: 22px;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+    .footer-note::after { content: ""; width: 42px; height: 8px; background: var(--accent); }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 28px, var(--max)); }
+      .hero { min-height: 82svh; padding-top: 72px; }
+      .hero::before { width: 72vw; right: -28vw; top: 10%; }
+      h1 { font-size: clamp(3.65rem, 17vw, 5.15rem); line-height: .84; }
+      .hero-copy { margin-left: 0; }
+      .section-head { grid-template-columns: 1fr; gap: 12px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project:nth-child(2) { margin-top: 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .services-title { position: static; }
+      .contact-panel { grid-template-columns: 1fr; }
+      .footer-note { align-items: flex-start; }
+    }
+    @media (max-width: 420px) {
+      .hero-meta { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .caption { flex-direction: column; gap: 4px; }
+      .service-item strong { line-height: 1.08; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero shell">
+      <div class="hero-meta"><span>Obule Paige</span><span>AI content creator</span></div>
+      <h1><span class="accent-mark" aria-hidden="true"></span>AI UGC &amp;<br />Product Ads</h1>
+      <p class="hero-copy">I create polished video and visual work for brands, campaigns and social platforms — from the first idea to the final cut.</p>
+      <div class="hero-actions">
+        <a class="button" href="mailto:mymesooma@gmail.com?subject=Project%20enquiry%20for%20Obule%20Paige">Work with me</a>
+        <a class="button button--quiet" href="#selected-work-title">View selected work</a>
+      </div>
+    </header>
+
+    <section class="shell" aria-labelledby="showreel-title">
+      <div class="section-head">
+        <h2 id="showreel-title">Showreel</h2>
+      </div>
+      <div class="video-frame video-frame--portrait showreel-frame">
+        <iframe src="https://drive.google.com/file/d/1rw-DzPRA1w4HkjKyY-b0rtfoU69OmTv_/preview" title="AI UGC and product ads showreel" allow="autoplay; fullscreen" allowfullscreen loading="eager"></iframe>
+      </div>
+      <p class="caption"><strong>Showreel — best hooks (0:40)</strong></p>
+    </section>
+
+    <section class="work-zone" aria-labelledby="selected-work-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="selected-work-title">Pieces</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project">
+            <div class="video-frame video-frame--portrait">
+              <iframe src="https://drive.google.com/file/d/1SSvnBgBpxfxdT923HkgUOQVE2pjo5fsb/preview" title="LOOVA Blender AI UGC Product Ad" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <h3>LOOVA Blender — AI UGC Product Ad</h3>
+            <p>15-second direct-response blender ad: close-up product action, bold captions, built to stop the scroll.</p>
+          </article>
+          <article class="project">
+            <div class="video-frame video-frame--landscape-4x3">
+              <iframe src="https://drive.google.com/file/d/1PJlkqjqNB2gYCbtC48SVKvYJNgCzees0/preview" title="SALTY Jewelry Infinity Collection Ad" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <h3>SALTY Jewelry — Infinity Collection Ad</h3>
+            <p>16-second jewelry spot: macro product detail, lifestyle framing, collection launch creative.</p>
+          </article>
+          <article class="project">
+            <div class="video-frame video-frame--portrait-720x904">
+              <iframe src="https://drive.google.com/file/d/1G8lHsGDWXkZ68ZykVrwx-schVIrEK8-o/preview" title="Onga Kitchen Court client ad" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <h3>Onga — Kitchen Court (client work)</h3>
+            <p>A playful quiz-style ad for Onga: a cooking problem — top still hard, bottom burned — is put on trial in Kitchen Court. What went wrong?</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell" aria-labelledby="services-title">
+      <div class="services-grid">
+        <div class="services-title">
+          <h2 id="services-title">What I do</h2>
+        </div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-number">01</span><strong>AI UGC video ads</strong></div>
+          <div class="service-item"><span class="service-number">02</span><strong>AI product ads and commercials</strong></div>
+          <div class="service-item"><span class="service-number">03</span><strong>AI short films and animation</strong></div>
+          <div class="service-item"><span class="service-number">04</span><strong>AI influencers and virtual personas</strong></div>
+          <div class="service-item"><span class="service-number">05</span><strong>AI fashion films</strong></div>
+          <div class="service-item"><span class="service-number">06</span><strong>AI voiceover and narration</strong></div>
+          <div class="service-item"><span class="service-number">07</span><strong>Long form YouTube content</strong></div>
+          <div class="service-item"><span class="service-number">08</span><strong>Short form content for TikTok, Instagram Reels and YouTube Shorts</strong></div>
+          <div class="service-item"><span class="service-number">09</span><strong>YouTube thumbnails and branded visuals</strong></div>
+          <div class="service-item"><span class="service-number">10</span><strong>Social media content strategy and scheduling</strong></div>
+          <div class="service-item"><span class="service-number">11</span><strong>Realistic AI images and portraits</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" aria-labelledby="about-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="about-title">About</h2>
+        </div>
+        <p class="about-statement">Obule Paige creates AI stories, movies, influencers, fashion, and branded content — everything AI.</p>
+      </div>
+    </section>
+
+    <section class="contact shell" aria-labelledby="contact-title">
+      <div class="contact-panel">
+        <h2 id="contact-title">Work with me</h2>
+        <div class="contact-content">
+          <p class="contact-copy">Have a project in mind? Let’s make it.</p>
+          <p class="contact-email">Tell me what you’re creating, where it will run and your timeline.<br /><a href="mailto:mymesooma@gmail.com">mymesooma@gmail.com</a></p>
+          <a class="button" href="mailto:mymesooma@gmail.com?subject=Project%20enquiry%20for%20Obule%20Paige">Start a project</a>
+        </div>
+      </div>
+      <footer class="footer-note">Obule Paige · AI content creator</footer>
+    </section>
+  </main>
+</body>
+</html>

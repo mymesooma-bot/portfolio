@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0b0c0e" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f3f4ef" media="(prefers-color-scheme: light)" />
+  <meta name="description" content="Obule Paige — AI creator. AI UGC and product ads, AI commercials, AI films and animation." />
+  <link rel="icon" href="data:," />
+  <title>Obule Paige — AI Creator Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f3f4ef;
+      --surface: #ffffff;
+      --surface-2: #e8eae4;
+      --ink: #111411;
+      --muted: #59605a;
+      --line: #c7ccc5;
+      --accent: #a8c900;
+      --accent-ink: #101300;
+      --shadow: 0 24px 70px rgba(25, 31, 24, .16);
+      --max: 1240px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #070809;
+        --surface: #0e1011;
+        --surface-2: #141718;
+        --ink: #f7f8f4;
+        --muted: #b1b6b1;
+        --line: #2d3234;
+        --accent: #d8ff32;
+        --accent-ink: #101300;
+        --shadow: 0 24px 70px rgba(0, 0, 0, .52);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "IBM Plex Sans", sans-serif;
+    }
+    .shell { width: min(100% - 40px, var(--max)); margin-inline: auto; }
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 0; border-bottom: 1px solid var(--line);
+      font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    header a { color: inherit; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px; }
+    header a:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    .hero { padding: clamp(64px, 10vw, 130px) 0 clamp(40px, 6vw, 70px); max-width: 900px; }
+    .kicker { font-size: .8rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+    h1 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(3rem, 9vw, 6.2rem);
+      line-height: .95; margin: 0 0 20px; text-transform: uppercase; letter-spacing: .01em;
+    }
+    h1 .dot { color: var(--accent); }
+    .bio { font-size: 1.1rem; line-height: 1.65; color: var(--muted); margin: 0 0 34px; max-width: 640px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 600;
+      background: var(--accent); color: var(--accent-ink);
+      padding: 15px 30px; border-radius: 999px; font-size: 1rem;
+    }
+    .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+    .grid {
+      display: grid; gap: 22px; grid-template-columns: 1fr;
+      padding: 10px 0 clamp(60px, 8vw, 100px);
+    }
+    @media (min-width: 760px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .card {
+      display: block; text-decoration: none; color: var(--ink);
+      background: var(--surface); border: 1px solid var(--line); border-radius: 20px;
+      padding: 34px 30px; box-shadow: var(--shadow);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .card:hover { transform: translateY(-6px); border-color: var(--accent); }
+    .card .num { font-size: .78rem; font-weight: 600; letter-spacing: .2em; color: var(--muted); }
+    .card h2 {
+      font-family: "Barlow Condensed", sans-serif; text-transform: uppercase;
+      font-size: 2rem; line-height: 1; margin: 14px 0 12px;
+    }
+    .card p { color: var(--muted); line-height: 1.6; margin: 0 0 20px; font-size: .98rem; }
+    .card .go { font-weight: 600; font-size: .95rem; }
+    .card .go::after { content: " \2192"; color: var(--accent); }
+    footer {
+      border-top: 1px solid var(--line); padding: 30px 0 60px;
+      color: var(--muted); font-size: .9rem;
+      display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    footer a { color: var(--ink); font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <span>Obule Paige &mdash; AI Creator</span>
+      <a href="mailto:mymesooma@gmail.com">Work with me</a>
+    </header>
+
+    <section class="hero">
+      <p class="kicker">Portfolio</p>
+      <h1>Everything AI<span class="dot">.</span></h1>
+      <p class="bio">Obule Paige creates AI stories, movies, influencers, fashion, and branded content &mdash; everything AI. Scroll-free showreels and full pieces across three specialisms, all made with tools like Google Flow, Runway, Higgsfield, Pika, Seedance, Minimax, Veo, Kling, Sora, Grok, ElevenLabs, and Midjourney.</p>
+      <div class="cta-row">
+        <a class="btn" href="mailto:mymesooma@gmail.com">Work with me</a>
+        <a class="btn ghost" href="#work">View the work</a>
+      </div>
+    </section>
+
+    <section class="grid" id="work">
+      <a class="card" href="ai-ugc-product-ads-portfolio.html">
+        <span class="num">01</span>
+        <h2>AI UGC &amp; Product Ads</h2>
+        <p>Scroll-stopping UGC style creatives and product commercials for direct to consumer brands &mdash; including client work for LOOVA, SALTY, and Onga.</p>
+        <span class="go">Open portfolio</span>
+      </a>
+      <a class="card" href="ai-commercials-portfolio.html">
+        <span class="num">02</span>
+        <h2>AI Commercials</h2>
+        <p>Cinematic AI commercials built for brands &mdash; concept, generation, edit, and captions, delivered platform ready.</p>
+        <span class="go">Open portfolio</span>
+      </a>
+      <a class="card" href="ai-films-animation-portfolio.html">
+        <span class="num">03</span>
+        <h2>AI Films &amp; Animation</h2>
+        <p>Short films, fantasy, VFX demos, and fashion films &mdash; from a baby dragon adventure to client fashion pieces.</p>
+        <span class="go">Open portfolio</span>
+      </a>
+    </section>
+
+    <footer>
+      <span>&copy; 2026 Obule Paige. All work created with AI.</span>
+      <a href="mailto:mymesooma@gmail.com">mymesooma@gmail.com</a>
+    </footer>
+  </div>
+</body>
+</html>
